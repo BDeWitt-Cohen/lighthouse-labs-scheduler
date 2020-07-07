@@ -8,7 +8,9 @@ import InterviewerListItem from "./InterviewerListItem";
 
 
 export default function InterviewerList(props) {
-  console.log("this is props", props);
+
+
+  //need to find out if I need this in here or not //console
   const interviewersList = classnames("interviewers", {
     "interviewers__list": props.interviewers
   })
@@ -41,7 +43,7 @@ export default function InterviewerList(props) {
 
 
 
-  return <section className="interviewers">
+  return <section className={"interviewers"}>
     <h4 className="interviewers__header text--light">Interviewer</h4>
     <div className="interviewers__list"> {singleInterviewer} </div>
   </section>

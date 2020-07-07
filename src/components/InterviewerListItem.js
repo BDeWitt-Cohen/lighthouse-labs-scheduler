@@ -5,12 +5,8 @@ import classnames from "classnames"
 
 export default function InterviewerListItem(props){
 
-//will need selected and clickable classes - need action for clickable
-//need to see what comes through in the props
-//props. id, name, avatar
 const interviewerClass = classnames("interviewers__item", { 
   "interviewers__item--selected": props.selected
-
 })
 
 return (
@@ -22,7 +18,5 @@ return (
   />
   {props.name}
 </li>)
-
-
 
 }
