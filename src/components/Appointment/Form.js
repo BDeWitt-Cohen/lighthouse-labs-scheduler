@@ -19,6 +19,9 @@ export default function Form(props) {
   }
 
 
+  
+
+
   return (<main className="appointment__card appointment__card--create">
             <section className="appointment__card-left">
               <form autoComplete="off">
@@ -48,17 +51,3 @@ export default function Form(props) {
           </main>)
 
 }
-
-
-/* 
-name={interviewers.name}
-      interviewers={interviewers}
-      interviewer={interviewer.id}
-      onSave={action ("onSave")}
-      onCancel={action ("onCancel")}
-  />)
-  .add("Create", () => <Form
-      interviewers={interviewers}
-      onSave={action ("onSave")}
-      onCancel={action ("onCancel")}
-*/
