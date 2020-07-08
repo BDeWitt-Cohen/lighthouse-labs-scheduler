@@ -35,7 +35,7 @@ const state = {
 
 
 //Filter appointments for a given day
-export function getAppointmentsForDay(state, day) {
+ export default function getAppointmentsForDay(state, day) {
 
   const filteredDays = state.days.filter(elem => elem.name === day);
 
