@@ -42,41 +42,42 @@ export default function Application(props) {
 }, []);
 
 function bookInterview(id, interview) {
-  console.log(id, interview);
-}
-
-function save(name, interviewer) {
-  const interview = {
-    student: name,
-    interviewer
+  const appointment = {
+    ...state.appointments[id],
+    interview: { ...interview }
   };
+  const appointments = {
+    ...state.appointments,
+    [id]: appointment
+  };
+
+  setState({
+    ...state,
+    appointments
+  });
 }
 
-const interViewersArr = Object.values(state.interviewers) //check with a mentor if something breaks down the road
 
+// const interViewersArr = Object.values(state.interviewers) //check with a mentor if something breaks down the road
 const interviewers = getInterviewersForDay(state, state.day);
 
-
+console.log(interviewers);
 
 const appointments = getAppointmentsForDay(state, state.day);
 
 const schedule = appointments.map((appointment) => {
   const interview = getInterview(state, appointment.interview);
-
-
-
   return (
     <Appointment
       key={appointment.id}
       id={appointment.id}
       time={appointment.time}
       interview={interview}
-      interviewers={interViewersArr}
+      interviewers={interviewers}
+      bookInterview={bookInterview}
     />
   );
 });
-
- 
 
   return (
     <main className="layout">
