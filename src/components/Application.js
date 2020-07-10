@@ -41,12 +41,21 @@ export default function Application(props) {
         })
 }, []);
 
-//If we need to find the values of interviewer by the ID return from the api call move obj.val down here instead
-const interViewersArr = Object.values(state.interviewers)
+function bookInterview(id, interview) {
+  console.log(id, interview);
+}
+
+function save(name, interviewer) {
+  const interview = {
+    student: name,
+    interviewer
+  };
+}
+
+const interViewersArr = Object.values(state.interviewers) //check with a mentor if something breaks down the road
 
 const interviewers = getInterviewersForDay(state, state.day);
-console.log("this is interviewers", interviewers);
-console.log("this is state", state.interviewers);
+
 
 
 const appointments = getAppointmentsForDay(state, state.day);

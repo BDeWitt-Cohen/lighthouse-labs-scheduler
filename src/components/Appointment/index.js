@@ -17,8 +17,6 @@ export default function Appointment(props) {
     props.interview ? SHOW : EMPTY
   );
 
-
-console.log("this is index", props)
   return <article className="appointment">
     <Header time={props.time} />
     {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
