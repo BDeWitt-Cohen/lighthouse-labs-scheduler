@@ -1,10 +1,10 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios'
 
 import "components/Application.scss";
 import DayList from "components/DayList";
 import Appointment from "components/Appointment/index.js"
-import {getAppointmentsForDay, getInterview} from "helpers/selectors"
+import {getAppointmentsForDay, getInterview, getInterviewersForDay} from "helpers/selectors"
 
 
 
@@ -30,10 +30,10 @@ export default function Application(props) {
       axios.get(`/api/appointments`),
       axios.get(`/api/interviewers`)
     ]).then((all) => {
-      console.log(all[0]); // first
-      console.log(all[1]); // second
+      // console.log(all[0]); // first
+      // console.log(all[1]); // second
       console.log(all[2].data);
-      setState(prev => ({...state, days: all[0].data,...appointments, appointments: all[1].data}));
+      setState(prev => ({...state, days: all[0].data,...appointments, appointments: all[1].data, ...interviewers, interviewers: all[2].data}));
         
     })
       .catch(err => {
@@ -41,11 +41,20 @@ export default function Application(props) {
         })
 }, []);
 
+//If we need to find the values of interviewer by the ID return from the api call move obj.val down here instead
+const interViewersArr = Object.values(state.interviewers)
+
+const interviewers = getInterviewersForDay(state, state.day);
+console.log("this is interviewers", interviewers);
+console.log("this is state", state.interviewers);
+
 
 const appointments = getAppointmentsForDay(state, state.day);
 
 const schedule = appointments.map((appointment) => {
   const interview = getInterview(state, appointment.interview);
+
+
 
   return (
     <Appointment
@@ -53,6 +62,7 @@ const schedule = appointments.map((appointment) => {
       id={appointment.id}
       time={appointment.time}
       interview={interview}
+      interviewers={interViewersArr}
     />
   );
 });

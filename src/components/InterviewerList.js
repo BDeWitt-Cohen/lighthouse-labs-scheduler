@@ -1,6 +1,5 @@
 import React from "react";
 import "components/InterviewerList.scss"
-import classnames from "classnames"
 import InterviewerListItem from "./InterviewerListItem";
 
 
@@ -9,14 +8,7 @@ import InterviewerListItem from "./InterviewerListItem";
 
 export default function InterviewerList(props) {
 
-
-  //need to find out if I need this in here or not //console
-  const interviewersList = classnames("interviewers", {
-    "interviewers__list": props.interviewers
-  })
-
-
-
+console.log(props)
   const singleInterviewer = props.interviewers.map(interviewer => {
     if (interviewer.id === props.interviewer) {
       return <InterviewerListItem

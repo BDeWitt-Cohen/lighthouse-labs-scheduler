@@ -1,7 +1,7 @@
-import React, { Fragment, useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function useVisualMode(initial) {
-  //history => history === prev => prev
+//history => history === prev => prev
   const [history, setHistory] = useState([initial]);
 
   const transition = (newMode, replace = false) => {
