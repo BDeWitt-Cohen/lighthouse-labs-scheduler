@@ -30,16 +30,13 @@ export default function Application(props) {
       axios.get(`/api/appointments`),
       axios.get(`/api/interviewers`)
     ]).then((all) => {
-      // console.log(all[0]); // first
-      // console.log(all[1]); // second
-      // console.log(all[2].data);
       setState(prev => ({...state, days: all[0].data,...appointments, appointments: all[1].data, ...interviewers, interviewers: all[2].data}));
         
     })
       .catch(err => {
         console.log(err.message);
         })
-}, []);
+}, [state.appointments]);
 
 function bookInterview(id, interview) {
   const appointment = {
@@ -116,7 +113,8 @@ const schedule = appointments.map((appointment) => {
           <DayList
             days={state.days}
             day={state.day}
-            setDay={setDay} />
+            setDay={setDay}
+            spots={state.days.spots} />
         </nav>
         <img
           className="sidebar__lhl sidebar--centered"

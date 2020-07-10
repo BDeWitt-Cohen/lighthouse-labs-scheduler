@@ -8,7 +8,7 @@ import InterviewerListItem from "./InterviewerListItem";
 
 export default function InterviewerList(props) {
 
-console.log(props)
+
   const singleInterviewer = props.interviewers.map(interviewer => {
     if (interviewer.id === props.interviewer) {
       return <InterviewerListItem
