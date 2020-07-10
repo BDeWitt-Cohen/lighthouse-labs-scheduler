@@ -32,7 +32,7 @@ export default function Application(props) {
     ]).then((all) => {
       // console.log(all[0]); // first
       // console.log(all[1]); // second
-      console.log(all[2].data);
+      // console.log(all[2].data);
       setState(prev => ({...state, days: all[0].data,...appointments, appointments: all[1].data, ...interviewers, interviewers: all[2].data}));
         
     })
@@ -50,19 +50,21 @@ function bookInterview(id, interview) {
     ...state.appointments,
     [id]: appointment
   };
-
+  return axios.put(`/api/appointments/${id}`, {interview: interview})
+  .then((res) =>{
   setState({
     ...state,
-    appointments
-  });
+    appointments })
+  return res;
+  })
+  .catch((error) => {
+    console.log(error);
+  })
 }
 
 
-// const interViewersArr = Object.values(state.interviewers) //check with a mentor if something breaks down the road
+
 const interviewers = getInterviewersForDay(state, state.day);
-
-console.log(interviewers);
-
 const appointments = getAppointmentsForDay(state, state.day);
 
 const schedule = appointments.map((appointment) => {
