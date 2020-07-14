@@ -14,6 +14,12 @@ export default function Application(props) {
     cancelInterview
   } = useApplicationData();
   
+const getSpotsForDay = function(day){
+  const appointments = getAppointmentsForDay(state, day);
+  const remainingSpots = appointments.filter(appointment => appointment.interview === null)
+  return remainingSpots.length;
+};
+
   const interviewers = getInterviewersForDay(state, state.day);
   const appointments = getAppointmentsForDay(state, state.day);
   const schedule = appointments.map((appointment) => {
@@ -44,7 +50,8 @@ export default function Application(props) {
           <DayList
             days={state.days}
             day={state.day}
-            setDay={setDay} />
+            setDay={setDay}
+            getSpotsForDay={getSpotsForDay} />
         </nav>
         <img
           className="sidebar__lhl sidebar--centered"

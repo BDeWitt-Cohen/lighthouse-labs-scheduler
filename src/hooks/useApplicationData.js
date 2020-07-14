@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import axios from "axios"
 
@@ -25,7 +24,7 @@ export default function useApplicationData() {
       .catch(err => {
         console.log(err.message);
       })
-  }, [day])
+  }, [])
 
   function bookInterview(id, interview) {
     const appointment = {
