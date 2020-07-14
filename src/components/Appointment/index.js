@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react'
+ 
+import React from 'react'
 import "components/Appointment/styles.scss";
 
 import Header from "components/Appointment/Header"
@@ -50,20 +51,7 @@ export default function Appointment(props) {
         transition(EMPTY))
   }
 
-  function confirm(input = false){
-    if(input) {
-      transition(DELETING, true);
-      props.cancelInterview(props.id)
-      .then(() => {
-        transition(EMPTY);
-      })
-      .catch(() => {
-        transition(ERROR_DELETE, true);
-      })
-    }
-  }
-
-  return <article className="appointment">
+  return <article className="appointment" data-testid="appointment">
     <Header time={props.time} />
     {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
     {mode === SHOW && (
