@@ -6,9 +6,13 @@ with the ability to add, edit, or delete an appointment.
 It was built with React and tested using Storybook, Jest, and Cypress.
 
 ## Final Product
+-Main page showing appointments and open slots
 !["Main page showing appointments and open slots"](docs/main-scheduler.png)
+-Adding a new appoitnment
 !["Adding a new appoitnment"](docs/adding-new-scheduler.png)
+-Confirmation of deleting an appointment
 !["Confirmation of deleting an appointment"](docs/delete-confirm-scheduler.png)
+-Error handling
 !["Error handling"](docs/error-handling-scheduler.png)
 
 ## Setup

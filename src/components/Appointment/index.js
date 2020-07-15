@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
 import "components/Appointment/styles.scss";
 
-import Header from "components/Appointment/Header"
-import Empty from "components/Appointment/Empty"
-import Show from "components/Appointment/Show"
+import Header from "components/Appointment/Header";
+import Empty from "components/Appointment/Empty";
+import Show from "components/Appointment/Show";
 import useVisualMode from 'hooks/useVisualMode';
-import Form from "components/Appointment/Form"
-import Status from "components/Appointment/Status"
-import Confirm from "components/Appointment/Confirm"
-import Error from "components/Appointment/Error"
+import Form from "components/Appointment/Form";
+import Status from "components/Appointment/Status";
+import Confirm from "components/Appointment/Confirm";
+import Error from "components/Appointment/Error";
 
 export default function Appointment(props) {
   const EMPTY = "EMPTY";
@@ -116,4 +116,4 @@ export default function Appointment(props) {
       />
     )}
   </article>
-}
+};
