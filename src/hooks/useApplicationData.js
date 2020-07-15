@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios"
+import axios from "axios";
 
 export default function useApplicationData() {
   const [state, setState] = useState({
@@ -10,8 +10,8 @@ export default function useApplicationData() {
   });
 
   const setDay = day => setState({ ...state, day });
-  const day = state.day;
-  const appointments = state.appointments
+  const day = state.day; //delete then test
+  const appointments = state.appointments; //delete then test
 
   useEffect(() => {
     Promise.all([
@@ -21,10 +21,10 @@ export default function useApplicationData() {
     ]).then((all) => {
       setState(prev => ({ ...state, days: all[0].data, appointments: all[1].data, interviewers: all[2].data }));
     })
-      .catch(err => {
-        console.log(err.message);
+      .catch(error => {
+        console.log(error.message);
       })
-  }, [])
+  }, []);
 
   function bookInterview(id, interview) {
     const appointment = {
@@ -42,10 +42,7 @@ export default function useApplicationData() {
           appointments
         })
         return res;
-      })
-      .catch((error) => {
-        console.log(error);
-      })
+      });
   };
 
   function cancelInterview(id) {
@@ -64,10 +61,7 @@ export default function useApplicationData() {
           appointments
         })
         return res;
-      })
-      .catch((error) => {
-        console.log(error);
-      })
+      });
   }
 
   return {
