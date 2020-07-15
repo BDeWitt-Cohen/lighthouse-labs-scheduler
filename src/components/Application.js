@@ -13,7 +13,8 @@ export default function Application(props) {
     bookInterview,
     cancelInterview
   } = useApplicationData();
-  
+
+  //Helper function to provide spots to Daylist component
 const getSpotsForDay = function(day){
   const appointments = getAppointmentsForDay(state, day);
   const remainingSpots = appointments.filter(appointment => appointment.interview === null)

@@ -10,8 +10,6 @@ export default function useApplicationData() {
   });
 
   const setDay = day => setState({ ...state, day });
-  const day = state.day; //delete then test
-  const appointments = state.appointments; //delete then test
 
   useEffect(() => {
     Promise.all([

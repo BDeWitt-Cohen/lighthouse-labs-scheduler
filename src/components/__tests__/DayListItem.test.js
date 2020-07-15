@@ -6,7 +6,9 @@ import DayListItem from "components/DayListItem";
 
 afterEach(cleanup);
 
-xit("renders without crashing", () => {
+it("renders without crashing", () => {
+  const getSpotsForDay = jest.fn();
+  expect(getSpotsForDay).toHaveBeenCalledTimes(0);
   render(<DayListItem />);
 });
 

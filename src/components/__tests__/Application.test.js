@@ -33,7 +33,7 @@ describe('Application', () => {
     });
 
     fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
-   
+
     fireEvent.click(getByText(appointment, "Save"));
 
     expect(getByText(appointment, "Saving")).toBeInTheDocument();
@@ -48,7 +48,7 @@ describe('Application', () => {
   });
 
   it("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
-    const { container, debug } = render(<Application />);
+    const { container } = render(<Application />);
 
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
@@ -126,21 +126,21 @@ describe('Application', () => {
     fireEvent.click(getByText(appointment, "Save"));
 
     expect(getByText(appointment, "Saving")).toBeInTheDocument();
-   
+
     await waitForElement(() => getByText(appointment, "Could not save appointment"));
-    
+
 
     const day = getAllByTestId(container, "day").find(day =>
       queryByText(day, "Monday")
     );
 
     expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
-    
+
   });
   it("shows the delete error when failing to save an appointment", async () => {
     axios.delete.mockRejectedValueOnce();
 
-  const { container, debug } = render(<Application />);
+    const { container } = render(<Application />);
 
     await waitForElement(() => getByText(container, "Archie Cohen"));
 
@@ -157,11 +157,11 @@ describe('Application', () => {
     expect(getByText(appointment, "Deleting")).toBeInTheDocument();
 
     await waitForElement(() => getByText(appointment, "Could not remove appointment"));
-    
+
     const day = getAllByTestId(container, "day").find(day =>
       queryByText(day, "Monday")
     );
-    console.log(prettyDOM(appointment));
+
     expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
   });
 

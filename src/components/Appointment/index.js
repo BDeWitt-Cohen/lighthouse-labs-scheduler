@@ -1,4 +1,3 @@
-
 import React from 'react'
 import "components/Appointment/styles.scss";
 
@@ -12,15 +11,15 @@ import Confirm from "components/Appointment/Confirm"
 import Error from "components/Appointment/Error"
 
 export default function Appointment(props) {
-  const EMPTY = "EMPTY"
-  const SHOW = "SHOW"
-  const CREATE = "CREATE"
-  const SAVING = "SAVING"
-  const DELETING = "DELETING"
-  const CONFIRM = "CONFIRM"
-  const EDIT = "EDIT"
-  const ERROR_SAVE = "ERROR_SAVE"
-  const ERROR_DELETE = "ERROR_DELETE"
+  const EMPTY = "EMPTY";
+  const SHOW = "SHOW";
+  const CREATE = "CREATE";
+  const SAVING = "SAVING";
+  const DELETING = "DELETING";
+  const CONFIRM = "CONFIRM";
+  const EDIT = "EDIT";
+  const ERROR_SAVE = "ERROR_SAVE";
+  const ERROR_DELETE = "ERROR_DELETE";
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
@@ -107,13 +106,13 @@ export default function Appointment(props) {
     {mode === ERROR_DELETE && (
       <Error
         message={'Could not remove appointment'}
-        onClose={() => { back() }}
+        onClose={() => { back(back()) }}
       />
     )}
     {mode === ERROR_SAVE && (
       <Error
         message={'Could not save appointment'}
-        onClose={() => { back() }}
+        onClose={() => { back(back()) }}
       />
     )}
   </article>
