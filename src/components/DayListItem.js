@@ -6,7 +6,7 @@ import classnames from "classnames"
 
 export default function DayListItem(props) {
 
-  const getSpotsForDay = props.getSpotsForDay
+  const getSpotsForDay = props.getSpotsForDay;
 
   const formatSpots = function(spots) {
     if (spots < 2 && spots > 0) {
@@ -17,12 +17,12 @@ export default function DayListItem(props) {
     } else {
       return "no spots remaining"
     }
-  }
+  };
 
   const dayClass = classnames("day-list__item", {
     "day-list__item--selected": props.selected,
     "day-list__item--full": props.spots === 0
-  })
+  });
 
   return (
     <li data-testid="day" className={dayClass} onClick={() => props.setDay(props.name)}>

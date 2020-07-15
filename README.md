@@ -6,10 +6,10 @@ with the ability to add, edit, or delete an appointment.
 It was built with React and tested using Storybook, Jest, and Cypress.
 
 ## Final Product
-!["Main page showing appointments and open slots"](https://github.com/BDeWitt-Cohen/tiny-app/blob/master/docs/tiny-app-urls-index.png)
-!["Adding a new appoitnment"](https://github.com/BDeWitt-Cohen/tiny-app/blob/master/docs/tiny-app-edit-url.png)
-!["Confirmation of deleting an appointment"](https://github.com/BDeWitt-Cohen/tiny-app/blob/master/docs/tiny-app-new-url.png)
-!["Error handling"](https://github.com/BDeWitt-Cohen/tiny-app/blob/master/docs/tiny-app-edit-url.png)
+!["Main page showing appointments and open slots"](docs/main-scheduler.png)
+!["Adding a new appoitnment"](docs/adding-new-scheduler.png)
+!["Confirmation of deleting an appointment"](docs/delete-confirm-scheduler.png)
+!["Error handling"](docs/error-handling-scheduler.png)
 
 ## Setup
 
@@ -32,3 +32,6 @@ npm test
 ```sh
 npm run storybook
 ```
+
+## Notes
+You will need to run a separate server for the API data. 

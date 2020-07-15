@@ -60,7 +60,7 @@ export default function useApplicationData() {
         })
         return res;
       });
-  }
+  };
 
   return {
     state,
@@ -68,4 +68,4 @@ export default function useApplicationData() {
     bookInterview,
     cancelInterview
   };
-}
+};
