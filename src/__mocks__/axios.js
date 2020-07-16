@@ -1,3 +1,6 @@
+
+//Dummy data used in 
+
 const fixtures = {
   days: [
     {

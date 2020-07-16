@@ -1,5 +1,6 @@
 import React from "react";
 
+//Status component - rendered in index.js and is shown during async operations
 export default function Status(props) {
   return (
     <main className="appointment__card appointment__card--status">

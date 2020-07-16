@@ -10,6 +10,7 @@ import Status from "components/Appointment/Status";
 import Confirm from "components/Appointment/Confirm";
 import Error from "components/Appointment/Error";
 
+//Appointment component - rendered in Application.js, deals with modes and transitions, pulls in useVisualMode hook to deal with the stack
 export default function Appointment(props) {
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";

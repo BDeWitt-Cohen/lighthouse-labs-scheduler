@@ -1,5 +1,7 @@
 import React from "react";
 
+
+//Error component - rendered in index.js when there's an error saving or deleting an appointment
 export default function Error(props) {
   return (
     <main className="appointment__card appointment__card--error">

@@ -3,13 +3,14 @@ import "components/DayListItem.scss"
 import classnames from "classnames"
 
 
-
+//DayListItem component - shows each individual day, rendered in daylist.js
 export default function DayListItem(props) {
 
   const getSpotsForDay = props.getSpotsForDay;
 
+  //Helper function to display the number of remaining spots with the appropriate wording
   const formatSpots = function(spots) {
-    if (spots < 2 && spots > 0) {
+    if (spots === 1) {
       return spots + " spot remaining"
     }
     else if (spots >= 2) {

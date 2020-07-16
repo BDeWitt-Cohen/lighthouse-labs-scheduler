@@ -2,6 +2,7 @@ import React from "react";
 import "components/InterviewerList.scss";
 import InterviewerListItem from "./InterviewerListItem";
 
+//InterviewerList component - rendered in form.js
 export default function InterviewerList(props) {
   const singleInterviewer = props.interviewers.map(interviewer => {
 

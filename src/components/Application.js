@@ -3,9 +3,11 @@ import React from "react";
 import "components/Application.scss";
 import DayList from "components/DayList";
 import Appointment from "components/Appointment/index.js";
-import {getAppointmentsForDay, getInterview, getInterviewersForDay} from "helpers/selectors";
+import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
 import useApplicationData from "hooks/useApplicationData";
 
+
+//Entire application component
 export default function Application(props) {
   const {
     state,
@@ -15,11 +17,11 @@ export default function Application(props) {
   } = useApplicationData();
 
   //Helper function to provide spots to Daylist component
-const getSpotsForDay = function(day){
-  const appointments = getAppointmentsForDay(state, day);
-  const remainingSpots = appointments.filter(appointment => appointment.interview === null)
-  return remainingSpots.length;
-};
+  const getSpotsForDay = function(day) {
+    const appointments = getAppointmentsForDay(state, day);
+    const remainingSpots = appointments.filter(appointment => appointment.interview === null)
+    return remainingSpots.length;
+  };
 
   const interviewers = getInterviewersForDay(state, state.day);
   const appointments = getAppointmentsForDay(state, state.day);

@@ -1,6 +1,8 @@
  
 import React from "react";
 
+
+//Show component - rendered in index.js and shows a booked appointment
 export default function Show(props) {
   return (
   <main className="appointment__card appointment__card--show">

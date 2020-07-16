@@ -1,8 +1,9 @@
 import React from "react";
 
 import "components/Button.scss";
-import classnames from "classnames"
+import classnames from "classnames";
 
+//Button component - rendered in confirm.js and form.js
 export default function Button(props) {
    const buttonClass = classnames("button", {
      "button--confirm": props.confirm,

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+
+//Custom hook with multiple helper functions and API calls used to clean-up Application.js
 export default function useApplicationData() {
   const [state, setState] = useState({
     day: "Monday",
@@ -11,6 +13,7 @@ export default function useApplicationData() {
 
   const setDay = day => setState({ ...state, day });
 
+  //API calls from the server to retrieve data
   useEffect(() => {
     Promise.all([
       axios.get(`/api/days`),
@@ -24,6 +27,7 @@ export default function useApplicationData() {
       })
   }, []);
 
+  //Function to push data to API and update local state
   function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -43,6 +47,7 @@ export default function useApplicationData() {
       });
   };
 
+  //Function to delete data from the API and update local state
   function cancelInterview(id) {
     const appointment = {
       ...state.appointments[id],

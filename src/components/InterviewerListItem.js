@@ -3,6 +3,7 @@ import "components/InterviewerListItem.scss"
 import classnames from "classnames"
 
 
+//InterviewerListItem component - rendered in interviewerlist.js
 export default function InterviewerListItem(props){
 
 const interviewerClass = classnames("interviewers__item", { 

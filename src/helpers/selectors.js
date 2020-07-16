@@ -10,14 +10,14 @@ export function getAppointmentsForDay(state, day) {
     }
   }
 
-return finalAppointments
+return finalAppointments;
 };
 
 // Format interview data to return object with student and interviewer data
 export function getInterview(state, interview) {
 
   if (!interview) {
-    return null
+    return null;
   }
 
   const finalInterview = {
